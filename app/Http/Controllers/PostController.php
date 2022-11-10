@@ -30,14 +30,14 @@ class PostController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Detail Data Post',
-            'data' => $posts
+            'data' => $post
         ], 200);
     }
 
     public function store(Request $request)
     {
         //set validation
-        $vaidator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'content' => 'required'
         ]);
@@ -74,7 +74,7 @@ class PostController extends Controller
     public function update(Request $request, Post $post)
     {
         //set validation
-        $vaidator = Validator::make($request->all(), [
+        $validator = Validator::make($request->all(), [
             'title' => 'required',
             'content' => 'required'
         ]);
